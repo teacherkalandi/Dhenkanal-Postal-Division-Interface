@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indiapost-red: #D42F2F;
+  --color-indiapost-yellow: #FFD700;
+}
