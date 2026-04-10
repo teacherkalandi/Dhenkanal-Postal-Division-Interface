@@ -28,60 +28,77 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f4f7f6] text-slate-900 font-sans selection:bg-red-100">
       {/* Header */}
-      <header className="bg-indiapost-red text-white py-6 px-6 shadow-lg relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+      <header className="bg-indiapost-red text-white shadow-lg relative overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-indiapost-yellow rounded-full blur-3xl opacity-20" />
           <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-indiapost-yellow rounded-full blur-3xl opacity-20" />
         </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="p-1.5 bg-white rounded-full shadow-inner flex-shrink-0"
-            >
-              <div className="w-10 h-10 bg-indiapost-red rounded-full flex items-center justify-center">
-                <Mail className="text-indiapost-yellow" size={20} />
-              </div>
-            </motion.div>
-            <div className="text-left">
-              <motion.h1 
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                className="text-2xl md:text-3xl font-bold tracking-tight text-indiapost-yellow"
-              >
-                Dhenkanal Postal Division Interface
-              </motion.h1>
-              <motion.p 
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.1 }}
-                className="text-sm text-white/90 font-medium"
-              >
-                BD Branch — Quick Access Portal
-              </motion.p>
-            </div>
-          </div>
 
-          {/* Search Bar */}
-          <motion.div 
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="w-full max-w-xs relative"
-          >
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-white/60" />
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between py-3 gap-4">
+            
+            {/* Left Section: Emblem + Title */}
+            <div className="flex items-center gap-3 md:gap-4">
+              <motion.img 
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" 
+                alt="National Emblem of India" 
+                className="h-10 md:h-12 w-auto brightness-0 invert opacity-90"
+                referrerPolicy="no-referrer"
+              />
+              <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+              <div className="text-left">
+                <motion.h1 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-lg md:text-xl font-bold tracking-tight text-indiapost-yellow leading-tight"
+                >
+                  Dhenkanal Postal Division Interface
+                </motion.h1>
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-[10px] md:text-xs text-white/80 font-medium uppercase tracking-wider"
+                >
+                  BD Branch — Quick Access Portal
+                </motion.p>
+              </div>
             </div>
-            <input
-              type="text"
-              placeholder="Search links..."
-              className="block w-full pl-9 pr-3 py-2 border border-white/20 rounded-lg leading-5 bg-white/10 backdrop-blur-md text-white placeholder-white/50 text-sm focus:outline-none focus:bg-white focus:text-slate-900 focus:ring-2 focus:ring-indiapost-yellow transition-all duration-200"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </motion.div>
+
+            {/* Right Section: Search + Logo */}
+            <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto">
+              <motion.div 
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="relative flex-grow md:w-64"
+              >
+                <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+                  <Search className="h-3.5 w-3.5 text-white/60" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search links..."
+                  className="block w-full pl-8 pr-3 py-1.5 border border-white/20 rounded-lg leading-5 bg-white/10 backdrop-blur-md text-white placeholder-white/50 text-xs focus:outline-none focus:bg-white focus:text-slate-900 focus:ring-2 focus:ring-indiapost-yellow transition-all duration-200"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </motion.div>
+              <div className="h-8 w-[1px] bg-white/20 hidden md:block" />
+              <motion.img 
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                src="https://upload.wikimedia.org/wikipedia/en/3/32/India_Post.svg" 
+                alt="India Post Logo" 
+                className="h-10 md:h-12 w-auto bg-white p-1 rounded-lg shadow-sm flex-shrink-0"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+          </div>
         </div>
       </header>
 
